@@ -263,7 +263,7 @@ defaults write -g NSUserKeyEquivalents -dict-add "\033Tab\033Select Next Tab" "@
 defaults write -g NSUserKeyEquivalents -dict-add "\033Tab\033Pin Tab" "@p"
 
 # Finder
-defaults write -g -dict-add "\033View\033Clean Up" "@r"
+defaults write -g NSUserKeyEquivalents -dict-add "\033View\033Clean Up" "@r"
 
 # 重置键盘、触控板
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
