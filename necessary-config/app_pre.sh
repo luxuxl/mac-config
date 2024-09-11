@@ -77,29 +77,31 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 # ... NewWindowTargetPath "file://..."
 defaults write com.apple.finder NewWindowTarget -string 'PfHm'
 # 总是新标签打开
-defaults write com.apple.finder FinderSpawnTab 1
+defaults write com.apple.finder FinderSpawnTab -bool true
 # 清空标签
 defaults write com.apple.finder FavoriteTagNames '()'
 # 显示所有文件扩展名
-defaults write -g AppleShowAllExtensions 1
-# 修改扩展名不提示
-defaults write com.apple.finder FXEnableExtensionChangeWarning 0
+defaults write -g AppleShowAllExtensions -bool true
+# 禁止 提示修改扩展名
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+# 禁止 从 iCloud 移除提示
+defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
 # 文件夹显示在前面
-defaults write com.apple.finder "_FXSortFoldersFirst" 1
-defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" 1
+defaults write com.apple.finder "_FXSortFoldersFirst" -bool true
+defaults write com.apple.finder "_FXSortFoldersFirstOnDesktop" -bool true
 # 显示隐藏文件
-# defaults write com.apple.finder AppleShowAllFiles 1
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 # 搜索位置 当前文件夹
 defaults write com.apple.finder FXDefaultSearchScope 'SCcf'
 # 不隐藏 Library
 chflags nohidden ~/Library
 # 各种 Bar
-defaults write com.apple.finder ShowPathbar 1
-defaults write com.apple.finder ShowStatusBar 0
-defaults write com.apple.finder ShowSidebar 1
+defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder ShowSidebar -bool true
 defaults write com.apple.finder SidebarWidth 194
-defaults write com.apple.finder ShowPreviewPane 0
-defaults write com.apple.finder ShowRecentTags 0
+defaults write com.apple.finder ShowPreviewPane -bool false
+defaults write com.apple.finder ShowRecentTags -bool false
 # 工具栏仅图标
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Display Mode" 2
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Item Identifiers" '("com.apple.finder.BACK","com.apple.finder.SRCH")'
@@ -113,6 +115,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # defaults write com.apple.finder QuitMenuItem -bool true
 
 # ------------------------- Safari --------------------------
+#TODO 为保险要改成 -bool
 # 首页, 展示背景图片和收藏, 其他全关闭
 defaults write com.apple.Safari ShowBackgroundImageInFavorites 1
 defaults write com.apple.Safari ShowFavorites 0

@@ -24,6 +24,8 @@ defaults write com.apple.dock "show-recents" -bool false
 defaults write com.apple.dock "persistent-apps" -string '{}'
 # 垃圾桶边上的应用
 defaults write com.apple.dock "persistent-others" -string '{}'
+# set speed for Mission Control (fast)
+defaults write com.apple.dock "expose-animation-duration" -float 0.1
 
 # ------------------------ Menu Bar -------------------------
 # 24-隐藏 18-总是显示 2-激活时显示
