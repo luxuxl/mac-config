@@ -6,7 +6,7 @@
 # 缺点的解决方法: 加入 sudo 或可解决（有待验证）, gridSpacing 用 PlistBuddy 修改
 # 解决方法二: 桌面 ⌘J 点一下, 生成后再用 PlistBuddy
 # 方法二的缺点: 操作更麻烦, 不予讨论
-sudo osascript << EOF
+osascript << EOF
 tell application "Finder"
 	set iconView to icon view options of window of desktop
 	tell iconView
@@ -20,13 +20,11 @@ tell application "Finder"
 	end tell
 end tell
 EOF
-# 修改 Desktop 间距
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:gridSpacing 1" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
 
 # 修改所有 column 视图的标准样式
 # 存在问题: 默认情况下 com.apple.finder 中没有 ColumnView
 # 解决方法: 用 AppleScript 操作
-sudo osascript << EOF
+osascript << EOF
 tell application "Finder"
 	make new Finder window
 	activate
@@ -42,6 +40,7 @@ EOF
 # 解决方法: 用 /usr/libexec/PlistBuddy
 # 方法的缺点: 无法操作不存在的文件、属性, 但是 AppleScript 处理后必定生成 com.apple.finder.plist, 故已被解决
 # 根据名称排序
+#TODO 存在问题$USERNAME 为空
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
 # 图标尺寸
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
@@ -105,8 +104,8 @@ defaults write com.apple.finder ShowRecentTags -bool false
 # 工具栏仅图标
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Display Mode" 2
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Item Identifiers" '("com.apple.finder.BACK","com.apple.finder.SRCH")'
-# 禁止 下载警告 Turn off the “Application Downloaded from Internet” quarantine warning.
-defaults write com.apple.LaunchServices "LSQuarantine" -bool false
+# 整理快捷键
+defaults write -g NSUserKeyEquivalents -dict-add "\033View\033Clean Up" "@r"
 # 禁止 在 USB 介质上创建 DS_Store
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # 禁止 在云端创建 DS_Store
@@ -116,6 +115,7 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # ------------------------- Safari --------------------------
 #TODO 为保险要改成 -bool
+#TODO 修改前要保证有 com.apple.Safari
 # 首页, 展示背景图片和收藏, 其他全关闭
 defaults write com.apple.Safari ShowBackgroundImageInFavorites 1
 defaults write com.apple.Safari ShowFavorites 0

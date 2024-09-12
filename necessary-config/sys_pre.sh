@@ -246,6 +246,9 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81
     </dict>
   </dict>
 "
+# 重置键盘、触控板
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+
 # --------- Custom Application Shortcuts - English Version ----------
 # All - Preference ⌘丶
 defaults write -g NSUserKeyEquivalents '{"Preferences..." = "@`";}'
@@ -261,12 +264,6 @@ defaults write -g NSUserKeyEquivalents -dict-add "\033Window\033Pin Tab" "@p"
 defaults write -g NSUserKeyEquivalents -dict-add "\033Tab\033Select Previous Tab" "@j"
 defaults write -g NSUserKeyEquivalents -dict-add "\033Tab\033Select Next Tab" "@k"
 defaults write -g NSUserKeyEquivalents -dict-add "\033Tab\033Pin Tab" "@p"
-
-# Finder
-defaults write -g NSUserKeyEquivalents -dict-add "\033View\033Clean Up" "@r"
-
-# 重置键盘、触控板
-/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 # ---------------- 调度中心 ---------------
 # 取消 自动排列空间
