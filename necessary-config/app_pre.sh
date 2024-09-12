@@ -35,25 +35,26 @@ tell application "Finder"
 end tell
 EOF
 
+sleep 0.5
+
 # 修改所有 Icon 视图的标准样式
 # 存在问题: defaults 命令无法修改子项
 # 解决方法: 用 /usr/libexec/PlistBuddy
 # 方法的缺点: 无法操作不存在的文件、属性, 但是 AppleScript 处理后必定生成 com.apple.finder.plist, 故已被解决
 # 根据名称排序
-#TODO 存在问题$USERNAME 为空
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy name" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 图标尺寸
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:iconSize 64" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 图标间距
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 42" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:gridSpacing 42" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 名称大小
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:textSize 12" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:textSize 12" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 显示 label
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:labelOnBottom 1" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:labelOnBottom 1" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 显示图标预览
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview 1" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showIconPreview 1" /Users/$USER/Library/Preferences/com.apple.finder.plist
 # 显示 info
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo 1" /Users/$USERNAME/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:showItemInfo 1" /Users/$USER/Library/Preferences/com.apple.finder.plist
 
 # 设置 column 为默认视图
 # Use list view in all Finder windows by default
