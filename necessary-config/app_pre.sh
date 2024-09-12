@@ -106,7 +106,9 @@ defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Display Mode" 2
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Item Identifiers" '("com.apple.finder.BACK","com.apple.finder.SRCH")'
 # 整理快捷键
-defaults write -g NSUserKeyEquivalents -dict-add "\033View\033Clean Up" "@r"
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "View Clean Up" "@r"
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Merge All Windows" "^r"
+
 # 禁止 在 USB 介质上创建 DS_Store
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # 禁止 在云端创建 DS_Store
