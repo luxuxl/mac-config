@@ -246,12 +246,14 @@ defaults write com.apple.symbolichotkeys.plist AppleSymbolicHotKeys -dict-add 81
     </dict>
   </dict>
 "
+# 取消 command + m Minimize
+defaults write -g NSUserKeyEquivalents '{"Minimize..." = "@~^$\\\\";}'
 # 重置键盘、触控板
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 # --------- Custom Application Shortcuts - English Version ----------
 # All - Preference ⌘丶
-defaults write -g NSUserKeyEquivalents '{"Preferences..." = "@`";}'
+# defaults write -g NSUserKeyEquivalents '{"Preferences..." = "@`";}'
 
 # Apple Application tab move
 # Cant work if change com.apple.safari NSUserKeyEquivalents
