@@ -97,7 +97,7 @@ defaults write com.apple.finder FXDefaultSearchScope 'SCcf'
 chflags nohidden ~/Library
 # 各种 Bar
 defaults write com.apple.finder ShowPathbar -bool true
-defaults write com.apple.finder ShowStatusBar -bool false
+defaults write com.apple.finder ShowStatusBar -bool true
 defaults write com.apple.finder ShowSidebar -bool true
 defaults write com.apple.finder SidebarWidth 194
 defaults write com.apple.finder ShowPreviewPane -bool false
@@ -105,9 +105,11 @@ defaults write com.apple.finder ShowRecentTags -bool false
 # 工具栏仅图标
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Display Mode" 2
 defaults write com.apple.finder "NSToolbar Configuration Browser" -dict-add "TB Item Identifiers" '("com.apple.finder.BACK","com.apple.finder.SRCH")'
-# 整理快捷键
+# Finder 快捷键
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add "View Clean Up" "@r"
 defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Merge All Windows" "^r"
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Add to Sidebar" "^t"
+defaults write com.apple.finder NSUserKeyEquivalents -dict-add "Open" "^e"
 
 # 禁止 在 USB 介质上创建 DS_Store
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
@@ -118,44 +120,50 @@ defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # ------------------------- Safari --------------------------
 #TODO 为保险要改成 -bool
-#TODO 修改前要保证有 com.apple.Safari
+# 确保存在 com.apple.Safari
+open -a Safari
+sleep 0.5
+killall Safari
+sleep 0.5
+defaults read com.apple.Safari
+
 # 首页, 展示背景图片和收藏, 其他全关闭
-defaults write com.apple.Safari ShowBackgroundImageInFavorites 1
-defaults write com.apple.Safari ShowFavorites 0
-defaults write com.apple.Safari ShowFrequentlyVisitedSites 0
-defaults write com.apple.Safari ShowHighlightsInFavorites 0
-defaults write com.apple.Safari ShowPrivacyReportInFavorites 0
-defaults write com.apple.Safari ShowReadingListInFavorites 0
-defaults write com.apple.Safari HideStartPageSiriSuggestionsEmptyItemView 0
-defaults write com.apple.Safari ShowSiriSuggestionsPreference 0
+defaults write com.apple.Safari ShowBackgroundImageInFavorites -bool true
+defaults write com.apple.Safari ShowFavorites -bool false
+defaults write com.apple.Safari ShowFrequentlyVisitedSites -bool false
+defaults write com.apple.Safari ShowHighlightsInFavorites -bool false
+defaults write com.apple.Safari ShowPrivacyReportInFavorites -bool false
+defaults write com.apple.Safari ShowReadingListInFavorites -bool false
+defaults write com.apple.Safari HideStartPageSiriSuggestionsEmptyItemView -bool false
+defaults write com.apple.Safari ShowSiriSuggestionsPreference -bool false
 # 默认下载地址
-defaults write com.apple.Safari NSNavLastRootDirectory "~/Desktop"
+defaults write com.apple.Safari NSNavLastRootDirectory -string "~/Desktop"
 # 下载成功移除
-defaults write com.apple.Safari DownloadsClearingPolicy 2
+defaults write com.apple.Safari DownloadsClearingPolicy -int 2
 # 关闭安全打开
-defaults write com.apple.Safari AutoOpenSafeDownloads 0
+defaults write com.apple.Safari AutoOpenSafeDownloads -bool false
 # 窗口最大化
 defaults write com.apple.Safari "NSWindow Frame BrowserWindowFrame" "0 0 1440 900 0 0 1440 900"
 # 紧凑标签, 好看
-defaults write com.apple.Safari ShowStandaloneTabBar 0
+defaults write com.apple.Safari ShowStandaloneTabBar -bool false
 # 在标签页中始终显示网站标题
-defaults write com.apple.Safari EnableNarrowTabs 0
+defaults write com.apple.Safari EnableNarrowTabs -bool false
 # 始终在新标签页打开
-defaults write com.apple.Safari TabCreationPolicy 2
+defaults write com.apple.Safari TabCreationPolicy -int 2
 # 打开新标签页或窗口后，使其成为活跃标签页或窗口
-defaults write com.apple.Safari OpenNewTabsInFront 1
+defaults write com.apple.Safari OpenNewTabsInFront -bool true
 # 关闭自动填充
-defaults write com.apple.Safari AutoFillCreditCardData 0
-defaults write com.apple.Safari AutoFillFromAddressBook 0
-defaults write com.apple.Safari AutoFillMiscellaneousForms 0
-defaults write com.apple.Safari AutoFillPasswords 0
+defaults write com.apple.Safari AutoFillCreditCardData -bool false
+defaults write com.apple.Safari AutoFillFromAddressBook -bool false
+defaults write com.apple.Safari AutoFillMiscellaneousForms -bool false
+defaults write com.apple.Safari AutoFillPasswords -bool false
 # 设置搜索引擎
-defaults write com.apple.Safari SearchProviderShortName Bing
+defaults write com.apple.Safari SearchProviderShortName -string "Bing"
 # 关闭快速网站搜索
-defaults write com.apple.Safari WebsiteSpecificSearchEnabled 0
+defaults write com.apple.Safari WebsiteSpecificSearchEnabled -bool false
 # 关闭后台载入最佳结果
-defaults write com.apple.Safari PreloadTopHit 0
+defaults write com.apple.Safari PreloadTopHit -bool false
 # 启用开发者菜单
-defaults write com.apple.Safari IncludeDevelopMenu 1
+defaults write com.apple.Safari IncludeDevelopMenu -bool true
 # 清空工具栏
 defaults write com.apple.Safari "NSToolbar Configuration BrowserToolbarIdentifier-v4.6" -dict-add "TB Item Identifiers" "(InputFieldsToolbarIdentifier,UnifiedTabBarToolbarIdentifier)"

@@ -195,10 +195,12 @@ defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 59 "<dic
 ### 移除 accessibliy control（162）
 defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 162 "<dict><key>enabled</key><false/></dict>"
 ### ------------------------- ###
-### 显示帮助（98）
 
-# ------------------- Keyboard - Input Sources -------------------
-# Seen Remove ABC Input Method
+# ------------------- Keyboard - Remove Roman character -------------------
+
+mkdir -p ~/Library/KeyBindings/
+touch ~/Library/KeyBindings/DefaultKeyBinding.dict
+echo '{ "~a" = (); "~b" = (); "~c" = (); "~d" = (); "~e" = (); "~f" = (); "~g" = (); "~h" = (); "~i" = (); "~j" = (); "~k" = (); "~l" = (); "~m" = (); "~n" = (); "~o" = (); "~p" = (); "~q" = (); "~r" = (); "~s" = (); "~t" = (); "~u" = (); "~v" = (); "~w" = (); "~x" = (); "~y" = (); "~z" = (); }' > ~/Library/KeyBindings/DefaultKeyBinding.dict
 
 # ------------- Custom System shortcuts ------------------
 ### ⌘ caps（⌃）3 全功能截图
