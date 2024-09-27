@@ -12,8 +12,9 @@ defaults write com.apple.dock "mineffect" -string 'scale'
 defaults write com.apple.dock "launchanim" -bool false
 # 自动隐藏
 defaults write com.apple.dock "autohide" -bool true
-# 自动隐藏延迟
-defaults write com.apple.dock "autohide-delay" -float 0
+# 自动隐藏延迟, 设为极大值将永不显示
+# defaults write com.apple.dock "autohide-delay" -float 0
+defaults write com.apple.dock autohide-delay -float 1000
 # 打开应用显示指示灯
 defaults write com.apple.dock "show-process-indicators" 1
 # 更简单的方法（未测试）, empty dock and only show opened app
