@@ -116,7 +116,7 @@ defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 # 禁止 在云端创建 DS_Store
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 # 可选 Allow quitting Finder via ⌘ + Q , doing so will also hide desktop icons
-# defaults write com.apple.finder QuitMenuItem -bool true
+defaults write com.apple.finder QuitMenuItem -bool true
 
 # ------------------------- Safari --------------------------
 #TODO 为保险要改成 -bool

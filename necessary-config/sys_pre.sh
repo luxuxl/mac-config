@@ -88,7 +88,7 @@ defaults write -g AppleEnableSwipeNavigateWithScrolls -bool false
 defaults -currentHost write -g "com.apple.trackpad.twoFingerFromRightEdgeSwipeGesture" -int 0
 # 启用 三指 拖移
 defaults write com.apple.AppleMultitouchTrackpad "TrackpadThreeFingerDrag" -bool true
-# 启用 control command 任意位置拖移
+# 启用 control command 任意位置拖动、拖移
 defaults write -g NSWindowShouldDragOnGesture -bool true
 # 启用 四指 左右桌面
 defaults -currentHost write -g "com.apple.trackpad.fourFingerHorizSwipeGesture" -int 2
